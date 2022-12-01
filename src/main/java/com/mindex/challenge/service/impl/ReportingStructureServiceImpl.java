@@ -31,7 +31,6 @@ public class ReportingStructureServiceImpl implements ReportingStructureService 
 
         reportingStructure.setEmployee(employee);
 
-        // recursion logic here?? access to necessary employee repository
         reportCounter = 0;
         findReports(employee.getEmployeeId());
         reportingStructure.setNumberOfReports(reportCounter);
@@ -43,7 +42,6 @@ public class ReportingStructureServiceImpl implements ReportingStructureService 
         if(employeeRepository.findByEmployeeId(empBaseId).getDirectReports() != null) {
             for(Employee empSub : employeeRepository.findByEmployeeId(empBaseId).getDirectReports()) {
                 reportCounter++;
-                //empSub.setDirectReports(employeeRepository.findByEmployeeId(empSub.getEmployeeId()).getDirectReports());
                 findReports(empSub.getEmployeeId());
             }
         }
