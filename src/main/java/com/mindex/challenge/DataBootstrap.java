@@ -32,16 +32,6 @@ public class DataBootstrap {
             throw new RuntimeException(e);
         }
 
-        // for (Employee employee : employees) {
-        //     // Adding a check here for employees with reports to flesh out the null fields with their proper data.
-        //     if(employee.getDirectReports() != null)
-        //     {
-        //         for(Employee empSub : employee.getDirectReports()) {
-        //             empSub = employees[]
-        //         }
-        //     }
-        // }
-        
         for (Employee employee : employees) {
             employeeRepository.insert(employee);
         }
