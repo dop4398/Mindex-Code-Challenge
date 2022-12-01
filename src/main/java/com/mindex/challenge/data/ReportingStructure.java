@@ -1,10 +1,17 @@
 package com.mindex.challenge.data;
 
+// import com.mindex.challenge.dao.EmployeeRepository;
+// import org.springframework.beans.factory.annotation.Autowired;
+
 public class ReportingStructure {
     private Employee employee;
     private int numberOfReports;
 
+    // @Autowired
+    // private EmployeeRepository employeeRepository;
+
     public ReportingStructure() {
+        numberOfReports = 0;
     }
 
     public Employee getEmployee() {
@@ -27,8 +34,19 @@ public class ReportingStructure {
         if(empBase.getDirectReports() != null) {
             for(Employee empSub : empBase.getDirectReports()) {
                 numberOfReports++;
+                // PROBLEM - directReports list only contain employee IDs; all other values are NULL.
                 findReports(empSub);
             }
         }
     }
+
+    // private void findReports(String empBaseId) {
+    //     if(employeeRepository.findByEmployeeId(empBaseId).getDirectReports() != null) {
+    //         for(Employee empSub : employeeRepository.findByEmployeeId(empBaseId).getDirectReports()) {
+    //             numberOfReports++;
+    //             // PROBLEM - directReports list only contain employee IDs; all other values are NULL.
+    //             findReports(empSub.getEmployeeId());
+    //         }
+    //     }
+    // }
 }

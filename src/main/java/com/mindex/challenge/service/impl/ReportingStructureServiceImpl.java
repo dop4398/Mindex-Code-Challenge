@@ -22,11 +22,12 @@ public class ReportingStructureServiceImpl implements ReportingStructureService 
 
         ReportingStructure reportingStructure = new ReportingStructure();
         Employee employee = employeeRepository.findByEmployeeId(id);
-        reportingStructure.setEmployee(employee);
 
         if (employee == null) {
             throw new RuntimeException("Invalid employeeId: " + id);
         }
+
+        reportingStructure.setEmployee(employee);
 
         return reportingStructure;
     }
