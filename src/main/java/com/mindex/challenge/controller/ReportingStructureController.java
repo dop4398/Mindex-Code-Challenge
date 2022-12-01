@@ -12,13 +12,13 @@ import org.springframework.web.bind.annotation.*;
 public class ReportingStructureController {
     private static final Logger LOG = LoggerFactory.getLogger(ReportingStructureController.class);
 
-    //@Autowired
-    //private ReportingStructureService reportingStructureService;
+    @Autowired
+    private ReportingStructureService reportingStructureService;
 
-    // @GetMapping("/reportingstructure/{id}")
-    // public ReportingStructure read(@PathVariable String id) {
-    //     LOG.debug("Received reporting structure read request for id [{}]", id);
+    @GetMapping("/reportingstructure/{id}")
+    public ReportingStructure read(@PathVariable String id) {
+        LOG.debug("Received reporting structure read request for employee id [{}]", id);
 
-    //     return ReportingStructureService.read(id);
-    // }
+        return reportingStructureService.read(id);
+    }
 }
