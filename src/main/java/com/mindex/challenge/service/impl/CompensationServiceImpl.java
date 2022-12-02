@@ -24,6 +24,10 @@ public class CompensationServiceImpl  implements CompensationService {
     public Compensation create(Compensation compensation) {
         LOG.debug("Creating compensation [{}]", compensation);
 
+        if(compensation.getEmployee() == null) {
+            throw new RuntimeException("Employee not found; cannot create compensation");
+        }
+        
         compensationRepository.insert(compensation);
 
         return compensation;
