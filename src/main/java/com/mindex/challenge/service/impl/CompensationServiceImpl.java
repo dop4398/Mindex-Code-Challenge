@@ -1,6 +1,7 @@
 package com.mindex.challenge.service.impl;
 
 import org.springframework.stereotype.Service;
+import com.mindex.challenge.data.Employee;
 import com.mindex.challenge.data.Compensation;
 import com.mindex.challenge.service.CompensationService;
 import com.mindex.challenge.dao.EmployeeRepository;
@@ -18,11 +19,29 @@ public class CompensationServiceImpl  implements CompensationService {
 
     @Override
     public Compensation create(Compensation compensation) {
-        return null;
+        LOG.debug("Creating compensation [{}]", compensation);
+
+        // compensation.setEmployee(null);
+        // compensation.setSalary(0);
+        // compensation.setEffectiveDate(null);
+
+        // add compensation to some list?
+
+        return compensation;
     }
 
     @Override
     public Compensation read(String id) {
-        return null;
+        LOG.debug("Retrieving compensation for employee with id [{}]", id);
+
+        Compensation compensation = new Compensation();
+        Employee employee = employeeRepository.findByEmployeeId(id);
+        if (employee == null) {
+            throw new RuntimeException("Invalid employeeId: " + id);
+        }
+        compensation.setEmployee(employee);
+    
+        // persistance...? read from a persistant list?
+        return compensation;
     }
 }
