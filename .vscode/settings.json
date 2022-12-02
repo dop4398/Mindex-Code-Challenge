@@ -1,3 +1,4 @@
 {
-    "java.import.gradle.java.home": "C:\\Program Files\\BellSoft\\LibericaJDK-8"
+    "java.import.gradle.java.home": "C:\\Program Files\\BellSoft\\LibericaJDK-8",
+    "java.compile.nullAnalysis.mode": "automatic"
 }
